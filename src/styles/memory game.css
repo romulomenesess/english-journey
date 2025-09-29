@@ -1,0 +1,116 @@
+:root {
+  --cor-primaria: #3E0703;
+  --cor-secundaria: #c82222;
+  --cor-terciaria: #8e1010;
+  --cor-quartenária: #FFF0C4;
+  --cor-clara: #E43636;
+  --vidro: rgba(255, 255, 255, 0.1);
+}
+
+.cabecalho {
+    height: 100px;
+    width: 100%;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#ffffff;
+    background-color: var(--cor-terciaria);
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: var(--cor-primaria);
+    user-select: none;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: linear-gradient(350deg,rgba(59, 9, 2, 1) 0%, rgba(158, 5, 5, 1) 50%, rgba(217, 73, 37, 1) 100%);
+    padding: 40px 40px;
+}
+
+.reset {
+    padding: 15px 20px;
+    width: 25%;
+    color: var(--cor-clara);
+    background-color: #ffffff;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.reset:hover {
+    background-color: #eb4949;
+    color: #ffffff;
+}
+
+.game {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    font-size: 4em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    background: #383737;
+    backface-visibility: hidden;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.boxOpen::after {
+    transform: rotateY(180deg);
+}
+
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
+
+.rodape {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+    background-color: var(--cor-terciaria);
+    text-transform: uppercase;
+    padding: 1rem;
+}
