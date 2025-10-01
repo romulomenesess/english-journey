@@ -993,12 +993,10 @@ const vocabularyData = {
   ],
 };
 
-// Adicionar um evento de clique para cada botão "Explorar"
 botoesExplorar.forEach((button) => {
   button.addEventListener("click", (e) => {
-    e.preventDefault(); // Evita que a página recarregue
+    e.preventDefault(); 
 
-    // Pega o nome do tópico que está na <h3>
     const topicTitle = button
       .closest(".unidade-caixa")
       .querySelector("h3").textContent;
@@ -1013,11 +1011,11 @@ fecharModalBtn.addEventListener("click", () => {
 
 function loadModalContent(topic) {
   const data = vocabularyData[topic];
-  if (!data) return; // Se não encontrar o tópico, para a função
+  if (!data) return;
 
   modalContent.innerHTML = "";
 
-  // Cria os elementos para cada palavra do tópico
+  
   data.forEach((item) => {
     const wordDiv = document.createElement("div");
     wordDiv.classList.add("flashcard");
@@ -1032,7 +1030,6 @@ function loadModalContent(topic) {
     modalContent.appendChild(wordDiv);
   });
 
-  // Adiciona o evento de clique para tocar o áudio
   modalContent.querySelectorAll(".play-audio").forEach((audioBtn) => {
     audioBtn.addEventListener("click", () => {
       const audioPath = audioBtn.dataset.audio;
@@ -1041,6 +1038,5 @@ function loadModalContent(topic) {
     });
   });
 
-  // Mostra o modal
   modalContainer.style.display = "flex";
 }
